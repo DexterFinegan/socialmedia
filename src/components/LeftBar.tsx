@@ -1,5 +1,5 @@
 import Link from "next/link"
-import Image from "next/image"
+import ImageProp from "./Image"
 
 const menuList = [
     {
@@ -24,13 +24,13 @@ const menuList = [
         id: 4,
         name: "Messages",
         link: "/",
-        icon: "messages.svg",
+        icon: "message.svg",
     },
     {
         id: 5,
         name: "Bookmarks",
         link: "/",
-        icon: "bookmarks.svg",
+        icon: "bookmark.svg",
     },
     {
         id: 6,
@@ -54,20 +54,20 @@ const LeftBar = () => {
             <div className="flex flex-col gap-4 text-m items-center xl:items-start">
                 {/*Logo*/}
                 <Link href="/" className="p-2 rounded-full hover:bg-[#181818]">
-                <Image src="icons/logo.svg" alt="logo" width={24} height={24}/>
+                <ImageProp path="icons/logo.svg" alt="logo" w={24} h={24}/>
                 </Link>
                 {/*Menu List*/}
                 <div className="flex flex-col gap-3">
                     {menuList.map(item => (
                         <Link href={item.link} className="p-2 rounded-full hover:bg-[#181818] flex items-center gap-4" key={item.id}>
-                            <Image src={`icons/${item.icon}`} alt={item.name} width={24} height={24}/>
+                            <ImageProp path={`icons/${item.icon}`} alt={item.name} w={24} h={24}/>
                             <span className="hidden xl:inline">{item.name}</span>
                         </Link>
                     ))}
                 </div>
                 {/*Button*/}
                 <Link href="/" className="bg-white text-black rounded-full w-12 h-12 flex items-center justify-center xl:hidden">
-                    <Image src="icons/post.svg" alt="post" width={24} height={24}/>
+                    <ImageProp path="icons/post.svg" alt="post" w={24} h={24}/>
                 </Link>
                 <Link href="/" className="hidden xl:block bg-white text-black rounded-full font-bold py-2 px-20">Post</Link>
             </div>
@@ -75,7 +75,7 @@ const LeftBar = () => {
             <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
                     <div className="w-10 h-10 relative rounder-full overflow-hidden">
-                        <Image src="/general/avatar.png" alt="DexUp" fill/>
+                        <ImageProp path="/general/avatar.png" alt="DexUp" w={100} h={100} tr={true}/>
                     </div>
                     <div className="hidden xl:flex flex-col">
                         <span className="font-bold">DexUp</span>
